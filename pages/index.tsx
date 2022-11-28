@@ -8,8 +8,9 @@ export default function Home() {
   const [name, setName] = useState("");
 
   useEffect(() => {
-    console.log("Name: ",name);
+    console.log("Name: ", name);
   }, [name]);
+  console.log(flag);
 
   useEffect(() => {
     fetch("/api/hello")
@@ -21,7 +22,9 @@ export default function Home() {
   }, [flag]);
   return (
     <div className={styles.container}>
-      <button onClick={() => setFlag(true)}>{`Name: ${name}`}</button>
+      <button
+        onClick={() => setFlag((prev) => !prev)}
+      >{`Name: ${name}`}</button>
     </div>
   );
 }
